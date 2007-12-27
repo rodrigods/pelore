@@ -60,5 +60,4 @@ public class Adress {
 	public void setNumber(int number) {
 		this.number = number;
 	}
-	
 }
