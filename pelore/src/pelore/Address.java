@@ -1,19 +1,23 @@
 package pelore;
 
-//TODO - add complement (for things such like apartments)
-
 public class Address {
 	
-	private String street, quarter, city, state, country;
+	private String street, quarter, city, state, country, apNumber;
 	private int number;
 
 	public Address (String street, String quarter, String city, String state, String country, int number) {
-		this.street = street;
-		this.quarter = quarter;
-		this.city = city;
-		this.state = state;
-		this.country = country;
-		this.number = number;
+		setStreet(street);
+		setQuarter(quarter);
+		setCity(city);
+		setState(state);
+		setCountry(country);
+		setNumber(number);
+		setApNumber("");
+	}
+	
+	public Address(String street, String quarter, String city, String state, String country, String apNumber, int number) {
+		this(street, quarter, city, state, country, number);
+		setApNumber(apNumber);
 	}
 
 	public String getStreet() {
@@ -63,9 +67,17 @@ public class Address {
 	public void setNumber(int number) {
 		this.number = number;
 	}
+
+	public String getApNumber() {
+		return apNumber;
+	}
+
+	public void setApNumber(String apNumber) {
+		this.apNumber = apNumber;
+	}
 	
 	public String toString() {
-		return getStreet() + " " + getNumber() + ", " + getQuarter() + ", " + getCity() + 
+		return getStreet() + " " + getNumber() + getApNumber() + ", " + getQuarter() + ", " + getCity() + 
 				", " + getState() + ", " + getCountry();
 	}
 	
@@ -81,4 +93,10 @@ public class Address {
 		}
 		return false;
 	}
+	
+	public static void main(String[] args) {
+		Address ad = new Address("Maria Aparecida Carneiro", "Catolé", "Campina Grande", "Paraíba", "Brazil", 97);
+		System.out.println(ad);
+	}
+
 }
