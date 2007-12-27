@@ -2,16 +2,13 @@ package pelore;
 
 public class PhoneNumber {
 	
-	private int prefix;
-	private int sufix;
-	private int zoneCode;
-	private int countryCode;
+	private int countryCode, zoneCode, prefix, sufix;
 	
 	public PhoneNumber(int countryCode, int zoneCode, int prefix, int sufix) {
-		this.prefix = prefix;
-		this.sufix = sufix;
-		this.zoneCode = zoneCode;
-		this.countryCode = countryCode;
+		setPrefix(prefix);
+		setSufix(sufix);
+		setZoneCode(zoneCode);
+		setCountryCode(countryCode);
 	}
 
 	public int getPrefix() {
