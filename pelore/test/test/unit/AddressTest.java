@@ -11,12 +11,13 @@ import pelore.Address;
 
 public class AddressTest {
 
-	Address address1, address2;
+	Address address1, address2, address3;
 	
 	@Before
 	public void setUp() throws Exception {
 		address1 = new Address("street", "quarter", "city", "state", "country", 1);
 		address2 = new Address("street", "quarter", "city", "state", "country", 1, "1a");
+		address3 = new Address(address1);
 	}
 
 	@After
@@ -32,6 +33,11 @@ public class AddressTest {
 		assertEquals("country", address1.getCountry());
 		assertEquals(1, address1.getNumber());
 		assertEquals("1a", address2.getApNumber());
+		assertEquals("street", address3.getStreet());
+		assertEquals("quarter", address3.getQuarter());
+		assertEquals("city", address3.getCity());
+		assertEquals("state", address3.getState());
+		assertEquals("country", address3.getCountry());
 	}
 
 	@Test
@@ -77,29 +83,30 @@ public class AddressTest {
 	}
 	
 	public void testSetApNumber() {
-		assertEquals("1a", address2.getApNumber());
-		address2.setApNumber("2b");
-		assertEquals("2b", address2.getApNumber());
+		assertEquals("", address3.getApNumber());
+		address3.setApNumber("1a");
+		assertEquals("1a", address3.getApNumber());
+		assertEquals(address2, address3);
 	}
 
 	@Test
 	public void testEquals() {
-		Address address3 = new Address("street", "quarter", "city", "state", "country", 1, "");
-		assertEquals(address1, address3);
-		address3 = new Address("street2", "quarter", "city", "state", "country", 1);
-		assertFalse(address1.equals(address3));
-		address3 = new Address("street", "quarter2", "city", "state", "country", 1);
-		assertFalse(address1.equals(address3));
-		address3 = new Address("street", "quarter", "city2", "state", "country", 1);
-		assertFalse(address1.equals(address3));
-		address3 = new Address("street", "quarter", "city", "state2", "country", 1);
-		assertFalse(address1.equals(address3));
-		address3 = new Address("street", "quarter", "city", "state", "country2", 1);
-		assertFalse(address1.equals(address3));
-		address3 = new Address("street", "quarter", "city", "state", "country", 12);
-		assertFalse(address1.equals(address3));
-		address3 = new Address("street", "quarter", "city", "state", "country", 1, "1a");
-		assertFalse(address1.equals(address3));
+		Address address4 = new Address("street", "quarter", "city", "state", "country", 1, "");
+		assertEquals(address1, address4);
+		address4 = new Address("street2", "quarter", "city", "state", "country", 1);
+		assertFalse(address1.equals(address4));
+		address4 = new Address("street", "quarter2", "city", "state", "country", 1);
+		assertFalse(address1.equals(address4));
+		address4 = new Address("street", "quarter", "city2", "state", "country", 1);
+		assertFalse(address1.equals(address4));
+		address4 = new Address("street", "quarter", "city", "state2", "country", 1);
+		assertFalse(address1.equals(address4));
+		address4 = new Address("street", "quarter", "city", "state", "country2", 1);
+		assertFalse(address1.equals(address4));
+		address4 = new Address("street", "quarter", "city", "state", "country", 12);
+		assertFalse(address1.equals(address4));
+		address4 = new Address("street", "quarter", "city", "state", "country", 1, "1a");
+		assertFalse(address1.equals(address4));
 	}
 
 	@Test

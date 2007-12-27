@@ -20,6 +20,10 @@ public class Address {
 		setApNumber(apNumber);
 	}
 
+	public Address(Address ad) {
+		this(ad.getStreet(), ad.getQuarter(), ad.getCity(), ad.getState(), ad.getCountry(), ad.getNumber(), ad.getApNumber());
+	}
+	
 	public String getStreet() {
 		return street;
 	}
@@ -93,11 +97,6 @@ public class Address {
 					other.getCountry().equals(this.getCountry());
 		}
 		return false;
-	}
-	
-	public static void main(String[] args) {
-		Address ad = new Address("Maria Aparecida Carneiro", "Catolé", "Campina Grande", "Paraíba", "Brazil", 97);
-		System.out.println(ad);
 	}
 
 }
