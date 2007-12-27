@@ -1,11 +1,29 @@
 package pelore;
 import java.util.Date;
 
+//TODO - add closeLoan method (and a variable to the loan date finishing)
+
 public abstract class Loan {
 
 	private String comment;
 	private Date loanDate;
 	private Date devolutionDate;
+	
+	public Loan() {
+		this(null, null, null);
+	}
+	
+	public Loan(String comment) {
+		this(comment, null, null);
+	}
+	
+	public Loan(String comment, Date devolutionDate) {
+		this(comment, null, devolutionDate);
+	}
+	
+	public Loan(Date loanDate, Date devolutionDate) {
+		this(null, loanDate, devolutionDate);
+	}
 	
 	public Loan(String comment, Date loanDate, Date devolutionDate) {
 		this.comment = comment;
