@@ -1,12 +1,13 @@
+package pelore;
 
-public class Phone {
+public class PhoneNumber {
 	
 	private int prefix;
 	private int sufix;
 	private int zoneCode;
 	private int countryCode;
 	
-	public Phone(int countryCode, int zoneCode, int prefix, int sufix) {
+	public PhoneNumber(int countryCode, int zoneCode, int prefix, int sufix) {
 		this.prefix = prefix;
 		this.sufix = sufix;
 		this.zoneCode = zoneCode;
@@ -46,7 +47,19 @@ public class Phone {
 	}
 	
 	public String toString() {
-		return countryCode + " " + zoneCode + " " + prefix + "-" + sufix;
+		return "(+" + countryCode + " " + zoneCode + ") " + prefix + "-" + sufix;
+	}
+	
+	public boolean equals(Object obj) {
+		if (obj instanceof PhoneNumber) {
+			PhoneNumber other = (PhoneNumber) obj;
+			return other.getSufix() == this.getSufix() &&
+					other.getPrefix() == this.getPrefix() &&
+					other.getZoneCode() == this.getZoneCode() &&
+					other.getCountryCode() == this.getCountryCode();
+		}
+		
+		return false;
 	}
 
 }
