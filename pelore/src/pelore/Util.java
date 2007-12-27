@@ -1,6 +1,6 @@
 package pelore;
 
-class Util {
+public class Util {
 
 	public static boolean equalObjects(Object a, Object b) {
 		if (a == null || b == null) {
