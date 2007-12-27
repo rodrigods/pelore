@@ -19,6 +19,13 @@ public class Person {
 		setAddress(ad);
 	}
 	
+	public Person(Person p) {
+		this(p.getName(), p.getAddress());
+		for (PhoneNumber pn : p.getPhoneNumbers()) {
+			this.addPhoneNumber(pn);
+		}
+	}
+	
 	public void addPhoneNumber(PhoneNumber pn, int pos) {
 		phoneNumbers.add(pos, pn);
 	}
