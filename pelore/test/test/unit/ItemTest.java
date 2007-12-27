@@ -34,7 +34,7 @@ public class ItemTest {
 
 	@Test
 	public void testItem() {
-		assertEquals("peterpan", peterpan.getName());
+		assertEquals("peter pan", peterpan.getName());
 		assertEquals("Viper", viper.getName());
 		
 		assertEquals(book, peterpan.getType());
@@ -50,9 +50,9 @@ public class ItemTest {
 
 	@Test
 	public void testSetName() {
-		assertEquals("peterpan", peterpan.getName());
-		peterpan.setName("peter pan");
 		assertEquals("peter pan", peterpan.getName());
+		peterpan.setName("peterpan");
+		assertEquals("peterpan", peterpan.getName());
 	}
 
 	@Test
@@ -73,7 +73,7 @@ public class ItemTest {
 
 	@Test
 	public void testToString() {
-		assertEquals("peterpan", peterpan.toString());
+		assertEquals("peter pan", peterpan.toString());
 		assertEquals("Viper", viper.toString());
 	}
 

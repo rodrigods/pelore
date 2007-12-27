@@ -52,6 +52,12 @@ public class PersonTest {
 		assertEquals("Jose da Silva", personWithAddress.getName());
 		assertEquals(address, personWithAddress.getAddress());
 	}
+	
+	@Test
+	public void testPersonCopy() {
+		Person p = new Person(personWithAddress);
+		assertEquals(personWithAddress, p);
+	}
 
 	@Test
 	public void testPhoneNumber() {
