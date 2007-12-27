@@ -15,7 +15,7 @@ public class Address {
 		setApNumber("");
 	}
 	
-	public Address(String street, String quarter, String city, String state, String country, String apNumber, int number) {
+	public Address(String street, String quarter, String city, String state, String country, int number, String apNumber) {
 		this(street, quarter, city, state, country, number);
 		setApNumber(apNumber);
 	}
@@ -86,6 +86,7 @@ public class Address {
 			Address other = (Address) obj;
 			return other.getStreet().equals(this.getStreet()) &&
 					other.getNumber() == this.getNumber() &&
+					other.getApNumber() == this.getApNumber() &&
 					other.getQuarter().equals(this.getQuarter()) &&
 					other.getCity().equals(this.getCity()) &&
 					other.getState().equals(this.getState()) &&
