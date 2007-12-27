@@ -68,8 +68,8 @@ public class PersonTest {
 		assertEquals(list, p.getPhoneNumbers());
 		
 		p.addPhoneNumber(phone3, 1);
-		list.add(2, phone3);
-		assertEquals(list, p);
+		list.add(1, phone3);
+		assertEquals(list, p.getPhoneNumbers());
 		assertTrue(p.getPhoneNumbers().size() == 3);
 		
 		p.removePhoneNumber(0);
