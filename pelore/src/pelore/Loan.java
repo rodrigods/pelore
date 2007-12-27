@@ -1,6 +1,7 @@
+package pelore;
 import java.util.Date;
 
-public class Loan {
+public abstract class Loan {
 
 	private String comment;
 	private Date loanDate;
