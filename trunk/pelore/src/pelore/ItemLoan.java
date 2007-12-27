@@ -40,5 +40,18 @@ public class ItemLoan extends Loan {
 			this.loanedItem.setLended(false);
 		}
 	}
+	
+	public boolean equals(Object obj) {
+		if(obj instanceof ItemLoan) {
+			ItemLoan other = (ItemLoan) obj;
+			return super.equals(other) &&
+					other.getItem().equals(this.getItem());
+		}
+		return false;
+	}
 
+	public String toString() {
+		return super.toString() + ", item: " + getItem();
+	}
+	
 }
