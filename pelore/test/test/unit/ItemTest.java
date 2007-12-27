@@ -1,6 +1,8 @@
 package test.unit;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.junit.After;
@@ -41,27 +43,38 @@ public class ItemTest {
 
 	@Test
 	public void testIsLended() {
-		fail("Not yet implemented"); // TODO
+		assertFalse(peterpan.isLended());
+		peterpan.setLended(true);
+		assertTrue(peterpan.isLended());
 	}
 
 	@Test
 	public void testSetName() {
-		fail("Not yet implemented"); // TODO
+		assertEquals("peterpan", peterpan.getName());
+		peterpan.setName("peter pan");
+		assertEquals("peter pan", peterpan.getName());
 	}
 
 	@Test
 	public void testSetType() {
-		fail("Not yet implemented"); // TODO
+		assertEquals(book, peterpan.getType());
+		peterpan.setType(car);
+		assertEquals(car, peterpan.getType());
 	}
 
 	@Test
 	public void testEqualsObject() {
-		fail("Not yet implemented"); // TODO
+		assertFalse(peterpan.equals(viper));
+		peterpan.setName(viper.getName());
+		assertFalse(peterpan.equals(viper));
+		peterpan.setType(viper.getType());
+		assertEquals(peterpan, viper);
 	}
 
 	@Test
 	public void testToString() {
-		fail("Not yet implemented"); // TODO
+		assertEquals("peterpan", peterpan.toString());
+		assertEquals("Viper", viper.toString());
 	}
 
 }
