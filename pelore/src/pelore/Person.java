@@ -79,4 +79,12 @@ public class Person {
 		return getName().toString();
 	}
 	
+	public void addPhoneNumber(PhoneNumber pn) {
+		phoneNumbers.add(pn);
+	}
+	
+	public int numberOfPhoneNumbers() {
+		return phoneNumbers.size();
+	}
+	
 }
