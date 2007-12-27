@@ -1,6 +1,7 @@
 package pelore;
 
 import java.math.BigDecimal;
+import java.text.NumberFormat;
 
 public class MoneyLoan {
 	
@@ -45,4 +46,25 @@ public class MoneyLoan {
 	public void subtractAmount(double d) throws IllegalArgumentException {
 		subtractAmount(BigDecimal.valueOf(d));
 	}
+	
+	public boolean equals(Object obj) {
+		if (obj instanceof MoneyLoan) {
+			MoneyLoan other = (MoneyLoan) obj;
+			return other.getAmount().equals(this.getAmount());
+		}
+		return false;
+	}
+	
+	public String toString() {
+		String format = String.valueOf(amount);
+		if (format.length() >= 6 ) {			
+			format = format.substring(0, format.indexOf(".")) + "," + 
+			         format.substring(format.indexOf(".") + 1, 6);
+		} else {
+			format = format.substring(0, format.indexOf(".")) + "," + 
+	                 format.substring(format.indexOf(".") + 1, 5) + "0";
+		}
+		return format;
+	}
+	
 }
