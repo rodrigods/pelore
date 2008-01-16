@@ -1,7 +1,6 @@
 package pelore;
 
 import java.math.BigDecimal;
-import java.text.NumberFormat;
 
 public class MoneyLoan {
 	
